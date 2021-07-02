@@ -1,4 +1,5 @@
  import 'package:flutter/material.dart';
+ import 'package:google_fonts/google_fonts.dart';
  
 class BuildAnimText extends StatelessWidget {
   const BuildAnimText({
@@ -31,8 +32,10 @@ Widget animChild(deviceWidth) {
       width: deviceWidth / 3,
       child: Text(
         'MAKE YOUR FINANCE GOALS SMARTER',
-        style: TextStyle(
-            fontSize: 50, color: Colors.white, fontWeight: FontWeight.bold),
+
+        style:GoogleFonts.openSans
+(fontWeight: FontWeight.bold,color:Colors.white,fontSize: 50),
+           
       ),
     ),
   );

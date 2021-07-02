@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TopMenuBar extends StatefulWidget {
   @override
@@ -51,10 +52,7 @@ class _TopMenuBarState extends State<TopMenuBar>
             children: [
               Text(
                 'Cardy'.toUpperCase(),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: GoogleFonts.jost(color: Colors.white, fontWeight: FontWeight.bold)
               ),
               Spacer(),
               Row(
@@ -78,10 +76,7 @@ class _TopMenuBarState extends State<TopMenuBar>
                 child: Center(
                   child: Text(
                     'Get the app'.toUpperCase(),
-                    style: TextStyle(
-                      color: HexColor('161616'),
-                      fontWeight: FontWeight.bold,
-                    ),
+                   style: GoogleFonts.jost(color: HexColor('#161616'), fontWeight: FontWeight.bold)
                   ),
                 ),
               ),
@@ -95,9 +90,7 @@ class _TopMenuBarState extends State<TopMenuBar>
   Widget menuName(String name) {
     return Text(
       name.toUpperCase(),
-      style: TextStyle(
-        color: Colors.white,
-      ),
+      style: GoogleFonts.jost(color: Colors.white,)
     );
   }
 }

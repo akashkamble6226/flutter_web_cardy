@@ -1,3 +1,5 @@
+import 'package:cardy/widgets/card.dart';
+
 import '../widgets/build_Outlined_Circle.dart';
 import '../widgets/top_Menu_Bar.dart';
 
@@ -60,13 +62,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ),
         child: Stack(
           children: [
-            //for top left 
+            //for top left
+            
+
+           
+           
+            MyCard(height: deviceHeight, width: deviceWidth),
+            TopMenuBar(),
             buildOutlinedCircleTop(-80, -80, 250, 250, true),
             buildOutlinedCircleTop(-60, -60, 180, 180, true),
 
-            TopMenuBar(),
+           
 
-            // for bottom right
+            
+              // for bottom right
             buildOutlinedCircleBottom(-80, -80, 250, 250, false),
             buildOutlinedCircleBottom(-60, -60, 180, 180, false),
             BuildAnimText(animation: animation, deviceWidth: deviceWidth),
@@ -83,11 +92,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     deviceHeight, deviceWidth, buttonAnimation),
               ),
             ),
-
-           
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    textAnimationController.dispose();
+    buttonAnimationController.dispose();
   }
 }
