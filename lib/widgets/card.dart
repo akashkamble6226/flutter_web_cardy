@@ -1,4 +1,4 @@
-import 'dart:ui';
+
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,12 +25,12 @@ class _MyCardState extends State<MyCard> with SingleTickerProviderStateMixin {
         AnimationController(vsync: this, duration: Duration(seconds: 3));
 
     final animCurve = CurvedAnimation(
-        parent: cardAnimationController,
-        curve: Curves.ease,
-        );
+      parent: cardAnimationController,
+      curve: Curves.linear,
+    );
     cardAnimation = Tween<double>(
       begin: 0,
-      end: -math.pi / 16,
+      end: -math.pi / 25,
     ).animate(animCurve)
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
@@ -46,34 +46,25 @@ class _MyCardState extends State<MyCard> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return 
-     AnimatedBuilder(
-      animation: cardAnimation,
-      builder: (BuildContext context, Widget? child) {
-
-        return Transform.rotate(
-          angle: cardAnimation.value,
-          child: myCard(),
-        );
-      },
+        AnimatedBuilder(
+          animation: cardAnimation,
+          builder: (BuildContext context, Widget? child) {
+            return Transform.rotate(
+              angle: cardAnimation.value,
+              child: myCard(),
+            );
+          },
+        
+      
     );
   }
 
   Widget myCard() {
     return Transform.rotate(
-        angle: 40/360,
-          child: Stack(
+      angle: 20 / 360,
+      child: Stack(
         children: [
-          BackdropFilter(
-            filter: ImageFilter.blur(
-              sigmaX: 7.0,
-              sigmaY: 7.0,
-            ),
-            child: Container(
-              width: widget.width,
-              height: widget.height,
-              child: Text(" "),
-            ),
-          ),
+         
           Positioned(
             top: widget.height / 3,
             right: 30,
@@ -82,8 +73,8 @@ class _MyCardState extends State<MyCard> with SingleTickerProviderStateMixin {
               height: widget.height * 0.35,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
-                border:
-                    Border.all(color: Colors.white.withOpacity(0.2), width: 1.0),
+                border: Border.all(
+                    color: Colors.white.withOpacity(0.2), width: 1.0),
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
@@ -103,7 +94,7 @@ class _MyCardState extends State<MyCard> with SingleTickerProviderStateMixin {
                       children: [
                         Text(
                           'Cardy'.toUpperCase(),
-                           style: GoogleFonts.jost(color: Colors.white),
+                          style: GoogleFonts.jost(color: Colors.white),
                         ),
                         Spacer(),
                         Icon(
@@ -117,7 +108,9 @@ class _MyCardState extends State<MyCard> with SingleTickerProviderStateMixin {
                       children: [
                         Text(
                           '2345  2828  8798  8976',
-                           style: GoogleFonts.jost(color: Colors.white, ),
+                          style: GoogleFonts.jost(
+                            color: Colors.white,
+                          ),
                         ),
                       ],
                     ),
@@ -128,12 +121,16 @@ class _MyCardState extends State<MyCard> with SingleTickerProviderStateMixin {
                       children: [
                         Text(
                           'John Doe'.toUpperCase(),
-                          style: GoogleFonts.jost(color: Colors.white, ),
+                          style: GoogleFonts.jost(
+                            color: Colors.white,
+                          ),
                         ),
                         Spacer(),
                         Text(
                           '12/24',
-                         style: GoogleFonts.jost(color: Colors.white, ),
+                          style: GoogleFonts.jost(
+                            color: Colors.white,
+                          ),
                         ),
                       ],
                     ),

@@ -1,4 +1,6 @@
-import './views/homepage.dart';
+import 'package:cardy/views/homepage.dart';
+
+
 import 'package:flutter/material.dart';
 
 void main() {
